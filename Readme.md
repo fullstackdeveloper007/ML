@@ -1,4 +1,7 @@
 ### Supervised Machine Learning
+* Regression (Input to Output) Learn from being given ight Answer
+* Classification Predict Categories
+  
 Supervised learning, refers to algorithms that learn x to y or input to output mappings. 
 The key characteristic of supervised learning is that you give your learning algorithm examples to learn from. 
 That includes the right answers, whereby right answer, I mean, the correct label y for a given input x, and is by seeing correct pairs
@@ -21,3 +24,12 @@ This is called visual inspection and it's helping manufacturers reduce or preven
 * In all of these applications, you will first train your model with examples of inputs x and the right answers, that is the labels y. After the model has learned from these input, output, or x and y pairs, 
 ![image](https://github.com/user-attachments/assets/af21f6d2-38e9-4575-b3c9-80e54081c2ef)
 ![image](https://github.com/user-attachments/assets/25227689-8403-48d4-8905-f0922264ccd6)
+
+* Difference between Regression and Classification
+![image](https://github.com/user-attachments/assets/67debad8-5cdf-42af-902c-ae5a1582ac34)
+
+
+# UnSupervised Learning
+![image](https://github.com/user-attachments/assets/d4a93fbd-4e0d-4030-97e1-1cd4122edaa7)
+
+
