@@ -30,6 +30,15 @@ This is called visual inspection and it's helping manufacturers reduce or preven
 
 
 # UnSupervised Learning
+Data only comes with input x, but not only outputs lable y. Algorithm has to find `structures` in data. 
+
 ![image](https://github.com/user-attachments/assets/d4a93fbd-4e0d-4030-97e1-1cd4122edaa7)
 
+## Clustering 
+* Example 1 :Clustering on news with certain keywords.
+* Example 2: DNA MicroArray finding genetic link
+* Example 3: Clustering customers by different market segmenent.
+* Example 4: Anomaly Detection, Find unsual data point.
+* Exaple  5: Dimensionality Reduction, Compress number using fewer numbers.
+* Example 6: Clustering, Group smiliar data points together. 
 
