@@ -1,0 +1,127 @@
+<img width="739" height="609" alt="image" src="https://github.com/user-attachments/assets/40478fef-b8ae-49d8-aff0-bf1eb2da4b37" /># Ensemble
+An ensemble is a technique in machine learning where multiple models (often called "learners") are combined to produce a better, more robust prediction than any single model could on its own.
+
+### Why Use Ensembles?
+Because:
+- Individual models may be biased or unstable
+- Combining models often leads to higher accuracy, less overfitting, and more generalization
+
+ 
+-In machine learning and ensemble methods (especially classification problems), majority voting, average (mean) voting, and weighted average voting are common ensemble prediction aggregation techniques. Let me explain each clearly with an example:
+
+
+### 1. Majority Voting (for Classification)
+This is used when multiple models (classifiers) give a predicted class label, and you want to select the one that appears most frequently.
+
+🔹 How it works:
+Each model votes for a class → The class with the most votes wins.
+
+✅ Example:
+3 models give predictions:
+
+- Model A: Class A
+- Model B: Class B
+- Model C: Class A
+
+🟩 Majority vote result: Class A (because it got 2 votes)
+
+### 2. Average Voting (for Regression or Probabilistic Classification)
+This is used when models give numerical outputs (e.g., probability scores or regression values). You take the simple mean of all predictions.
+
+✅ Example for regression:
+- Model A: 0.6
+- Model B: 0.8
+- Model C: 0.9
+
+🟦 Average: (0.6 + 0.8 + 0.9) / 3 = 0.7667
+
+In classification, this can apply to probability outputs per class. For example, if predicting probability of "Class A":
+
+Model	Class A (prob)
+A	0.60
+B	0.80
+C	0.90
+
+Average probability = 0.7667 → pick Class A if this is higher than other classes' averaged probabilities.
+
+
+### 3. Weighted Average Voting (for Regression or Probabilistic Classification)
+Same as average voting, but you give more weight to some models based on their performance or confidence.
+
+✅ Example:
+Same model predictions as above:
+
+- Model A: 0.6 (weight = 1)
+- Model B: 0.8 (weight = 2)
+- Model C: 0.9 (weight = 3)
+
+Weighted average =
+(0.6×1 + 0.8×2 + 0.9×3) / (1+2+3) = (0.6 + 1.6 + 2.7) / 6 = 4.9 / 6 ≈ 0.8167
+
+🟦 Final prediction: 0.8167 (higher than simple average due to model C's higher weight)
+
+ 
+## Types of Ensemble Methods
+Here are the most common ensemble techniques:
+
+### 1. Bagging (Bootstrap Aggregating) (known as Boostraping in Stat) 
+Trains multiple models independently on random subsets of the data (with replacement)
+We do random sampling of the existing data set and create random dataset and take the result decide based on majority voting (hard voting)
+<img width="739" height="609" alt="image" src="https://github.com/user-attachments/assets/b3b6d077-192e-4c27-905a-77a59562b326" />
+
+Reduces variance
+
+✅ Example: Random Forest
+
+### 2. Boosting
+Trains models sequentially, where each model tries to correct errors of the previous one
+
+Reduces bias and variance
+
+✅ Examples: XGBoost, AdaBoost, LightGBM, CatBoost
+
+### 3. Stacking (Stacked Generalization)
+Combines predictions of multiple models using a meta-model
+
+Base models make predictions → Meta-model learns to combine them
+
+✅ Example: Use Logistic Regression as a meta-model over Decision Trees, SVMs, etc.
+
+### 4. Voting
+For classification tasks:
+
+Hard voting: majority voting of predicted class labels
+Soft voting: average/weighted average of predicted probabilities
+
+# Code Example: Voting Ensemble (scikit-learn)
+
+```python
+from sklearn.ensemble import VotingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+# Load data
+X, y = load_iris(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Define base models
+clf1 = LogisticRegression()
+clf2 = DecisionTreeClassifier()
+clf3 = SVC(probability=True)
+
+# Create voting ensemble
+ensemble = VotingClassifier(estimators=[
+    ('lr', clf1), ('dt', clf2), ('svc', clf3)],
+    voting='soft'  # 'hard' for majority vote
+)
+
+ensemble.fit(X_train, y_train)
+print("Ensemble accuracy:", ensemble.score(X_test, y_test))
+
+```
+# Notes
+<img width="761" height="604" alt="image" src="https://github.com/user-attachments/assets/59919e04-7792-467e-a034-e84269dcac40" />
+
