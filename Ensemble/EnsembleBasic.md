@@ -1,4 +1,4 @@
-<img width="739" height="609" alt="image" src="https://github.com/user-attachments/assets/40478fef-b8ae-49d8-aff0-bf1eb2da4b37" /># Ensemble
+# Ensemble
 An ensemble is a technique in machine learning where multiple models (often called "learners") are combined to produce a better, more robust prediction than any single model could on its own.
 
 ### Why Use Ensembles?
