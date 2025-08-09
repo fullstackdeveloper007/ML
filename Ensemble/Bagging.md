@@ -1,20 +1,20 @@
 # Bagging = Bootstrap Aggregating
 
-It’s an ensemble learning technique where:
-You randomly sample the training data with replacement (bootstrap sampling).
-Train multiple models on these different samples (often the same type of model, e.g., decision trees).
-Combine their predictions (averaging for regression, majority vote for classification).
+It’s an ensemble learning technique where:  
+You randomly sample the training data with replacement (bootstrap sampling).  
+Train multiple models on these different samples (often the same type of model, e.g., decision trees).  
+Combine their predictions (averaging for regression, majority vote for classification).  
 
 Why Bagging Works
-Different models see slightly different data → they make different errors
-Combining them reduces variance and prevents overfitting
-Works best for unstable models (small data changes → big prediction changes), like decision trees
-We do randomsampling of data in bagging, create multiple dataset from same data and pass all the dataset to ssame model
+Different models see slightly different data → they make different errors  
+Combining them reduces variance and prevents overfitting  
+Works best for unstable models (small data changes → big prediction changes), like decision trees  
+We do randomsampling of data in bagging, create multiple dataset from same data and pass all the dataset to ssame model  
 
-📌 Think of it as:
+###📌 Think of it as:
 “Instead of relying on one noisy opinion, ask a bunch of people who have seen slightly different parts of the story and take the average.”
 
-3. Steps in Bagging
+### Steps in Bagging
 Draw m bootstrap samples from the dataset (same size as the original, but with replacement).
 Train m separate models (often in parallel).
 
@@ -22,7 +22,7 @@ Combine predictions:
 Classification: Majority vote (hard voting) or probability averaging (soft voting)
 Regression: Average predictions
 
-4. Key Points to Remember (Interview/Practice)
+### Key Points to Remember (Interview/Practice)
 - Sampling with replacement = Some points are repeated, some are left out (called out-of-bag samples)
 - Out-of-Bag (OOB) error can be used as a validation score without a separate test set
 - Works best on high-variance, low-bias models (like decision trees)
